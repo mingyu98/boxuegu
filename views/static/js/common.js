@@ -10,4 +10,17 @@ define(["jquery", "template", "cookie"], function($, template){
 	        $("#userinfo").html(html);
 		}  
     })
+	
+	//退出登录的功能
+		$("#logout").click(function(){
+			$.ajax({
+				url: "/api/logout",
+				type: "post",
+				success: function(data){
+					if(data.code == 200){
+						location.href = "/dashboard/login";
+					}
+				}
+			})
+		});
 })
