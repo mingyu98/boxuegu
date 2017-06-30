@@ -17,13 +17,13 @@
                     <span class="input-group-addon">
                         <i class="fa fa-user"></i>
                     </span>
-                    <input type="text" id="username" class="form-control" placeholder="用户名">
+                    <input type="text" name="tc_name" id="username" class="form-control" placeholder="用户名">
                 </div>
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">
                         <i class="fa fa-key"></i>
                     </span>
-                    <input type="password" id="password" class="form-control" placeholder="密码">
+                    <input type="password" name="tc_pass" id="password" class="form-control" placeholder="密码">
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
             </form>
@@ -32,33 +32,8 @@
     
     <?php include "/views/public/js.html" ?>
     <script>
-    
-        $(function(){
-            //
-            $("#login-form").submit(function(){
-                //2.获取用户输入的用户名和密码
-                var userName = $("#username").val();
-                var password = $("#password").val();
-                //3.发送ajax请求进行登录验证
-                $.ajax({
-                    url:"/api/login",
-                    type:"post",
-                    data:{
-                        tc_name: userName,
-                        tc_pass: password
-                    },
-                    success:function(data){
-                        // console.log(data);
-                        if(data.code == 200){
-                            //跳转页面
-                            location.href = "/";
-                        }
-                    }
-                })
-                //阻止表单的默认提交
-                return false;
-            })
-        })
+        require(["static/js/dashboard/login"]);
     </script>
+  
 </body>
 </html>
