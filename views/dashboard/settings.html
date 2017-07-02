@@ -9,11 +9,13 @@
     
     <!-- 侧边栏 -->
     <?php include "/views/public/aside.html" ?>
+    
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
             <?php include "/views/public/header.html" ?>
+            
             <!-- 讲师资料 -->
             <div class="body teacher-profile">
                 <div class="settings">
@@ -54,26 +56,22 @@
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">出生日期</label>
                             <div class="col-xs-5">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" name="tc_birthday" class="form-control input-sm">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">籍贯</label>
-                            <div class="col-xs-5">
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
+                            <div class="col-xs-5" id="region">
+                                <select name="" id="p" class="form-control input-sm">
+                                    <option value="">请选择</option>
                                 </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
+                                <select name="" id="c" class="form-control input-sm">
+                                    <option value="">请选择</option>
+
                                 </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
+                                <select name="" id="d" class="form-control input-sm">
+                                    <option value="">请选择</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -92,19 +90,19 @@
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">入职日期</label>
                             <div class="col-xs-5">
-                                <input type="text" class="form-control input-sm">
+                                <input name="tc_join_date" type="text" class="form-control input-sm">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">个人介绍</label>
                             <div class="col-xs-5 ckeditor">
-                                <textarea name="" rows="15" class="form-control input-sm"></textarea>
+                                <textarea name="" id="introduce" rows="15" class="form-control input-sm"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-8">
-                                <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
-                                <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
+                                <a href="/course/step2" class="btn btn-success btn-sm pull-right">保 存</a>
+                                <a href="/dashboard/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
                             </div>
                         </div>
                     </form>
@@ -114,5 +112,8 @@
     </div>
 
     <?php include "/views/public/js.html" ?>
+    <script>
+        require(["static/js/dashboard/settings"])
+    </script>
 </body>
 </html>
