@@ -1,4 +1,4 @@
-define(["jquery", "template", "util", "form"], function($, template, util){
+define(["jquery", "template", "util", "form", "datepicker", "datepicker-zh"], function($, template, util){
 	//1. 区分究竟是添加操作还是编辑操作！
 
 	//由于进行讲师编辑的时候，需要从列表中传进来当前要编辑的讲师的id
@@ -32,6 +32,10 @@ define(["jquery", "template", "util", "form"], function($, template, util){
 
 				var html = template("teacher-tpl", data.result);
 				$(".teacher").html(html);
+				$("input[name=tc_join_date]").datepicker({
+					format: "yyyy-mm-dd",
+					language: "zh-CN"
+				});
 			}
 		})
 
@@ -44,6 +48,10 @@ define(["jquery", "template", "util", "form"], function($, template, util){
 			type: "add"
 		});
 		$(".teacher").html(html);
+		$("input[name=tc_join_date]").datepicker({
+					format: "yyyy-mm-dd",
+					language: "zh-CN"
+		});
 	}
 
 	//给保存按钮注册点击事件
